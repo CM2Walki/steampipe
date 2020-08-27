@@ -23,6 +23,6 @@ fi
 
 sed -i "/\"desc\"/c\        \"desc\" \"${STEAMAPPBUILDESC}\"" "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
 
-bash "${STEAMCMDDIR}/steamcmd.sh" +login "${STEAMUSER}" "${STEAMPASSWORD}" ${STEAMGUARDCODE}" \
+bash "${STEAMCMDDIR}/steamcmd.sh" +login "${STEAMUSER}" "${STEAMPASSWORD}" "${STEAMGUARDCODE}" \
 					+run_app_build "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
 					+quit
