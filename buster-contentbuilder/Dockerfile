@@ -3,7 +3,7 @@
 ############################################################
 FROM cm2network/steamcmd:root
 
-ENV DLURL https://raw.githubusercontent.com/CM2Walki/steamsdk
+ENV DLURL https://raw.githubusercontent.com/CM2Walki/steampipe
 ENV CONTENTBUILDERDIR "${HOMEDIR}/steamsdk"
 ENV BUILDERSCRIPTDIR "${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/scripts"
 ENV BUILDERCONTENTDIR "${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/content"
@@ -31,9 +31,8 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
 		wget=1.20.1-1.1 \
-	&& mkdir -p "${CONTENTBUILDERDIR}" "${BUILDERSCRIPTDIR}/*" "${BUILDERCONTENTDIR}/*" "${BUILDEROUTPUTDIR}/*" \
-	&& wget "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
-	&& rm -r "${BUILDERSCRIPTDIR}/*" "${BUILDERCONTENTDIR}/*" "${BUILDEROUTPUTDIR}/*" \
+	&& mkdir -p "${CONTENTBUILDERDIR}" "${BUILDERSCRIPTDIR}" "${BUILDERCONTENTDIR}" "${BUILDEROUTPUTDIR}" \
+	&& wget -q "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${CONTENTBUILDERDIR}" "${HOMEDIR}/entry.sh" \
 	&& rm -rf /var/lib/apt/lists/*

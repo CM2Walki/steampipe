@@ -21,6 +21,6 @@ if [ ! "$( ls -A ${BUILDERSCRIPTDIR} )" ]; then
 		"${BUILDERSCRIPTDIR}/depot_build_default.vdf"
 fi
 
-#bash "${STEAMCMDDIR}/steamcmd.sh" +login "${STEAMUSER}" "${STEAMPASSWORD}" ${STEAMGUARDCODE}" \
-#					+run_app_build "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
-#					+quit
+bash "${STEAMCMDDIR}/steamcmd.sh" +login "${STEAMUSER}" "${STEAMPASSWORD}" ${STEAMGUARDCODE}" \
+					+run_app_build "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
+					+quit
