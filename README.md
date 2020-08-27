@@ -1,12 +1,12 @@
 # steamsdk
 (WIP)
-Dockerfile for automated build of a SteamCMD + SteamSDK installation
+Dockerfile for automated build of a SteamCMD + SteamPipe ContentBuilder installation
 
 Scripts Dir:
-"${STEAMSDKDIR}/sdk/tools/ContentBuilder/scripts"
+"${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/scripts"
 
 Content Dir:
-"${STEAMSDKDIR}/sdk/tools/ContentBuilder/content"
+"${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/content"
 
 Output Dir:
-"${STEAMSDKDIR}/sdk/tools/ContentBuilder/output"
+"${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/output"
