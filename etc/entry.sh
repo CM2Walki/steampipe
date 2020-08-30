@@ -10,8 +10,7 @@ if [ ! "$( ls -A ${BUILDERSCRIPTDIR} )" ]; then
 	# Replace variables in app_build.vdf
 	sed -i -e 's/{{STEAMAPPID}}/'"${STEAMAPPID}"'/g' \
 		-e 's/{{STEAMDEPOTID}}/'"${STEAMDEPOTID}"'/g' \
-		-e 's/{{STEAMAPPBUILDESC}}/'"${STEAMAPPBUILDESC}"'/g' \
-		-e 's/{{STEAMAPPBRANCH}}/'"${STEAMAPPBRANCH}"'/g' \
+		-e 's/{{STEAMAPPBUILDESC}}/'"${STEAMAPPBUILDESC}"'/g' \		
 		"${BUILDERSCRIPTDIR}/app_build_default.vdf"
 
 	# Replace variables in depot_build.vdf
@@ -20,6 +19,8 @@ if [ ! "$( ls -A ${BUILDERSCRIPTDIR} )" ]; then
 		-e 's|{{LOCALCONTENTPATH}}|'"${LOCALCONTENTPATH}"'|g' \
 		"${BUILDERSCRIPTDIR}/depot_build_default.vdf"
 fi
+
+sed -i "/\"setlive\"/c\        \"setlive\" \"${STEAMAPPBRANCH}\"" "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
 
 bash "${STEAMCMDDIR}/steamcmd.sh" +login "${STEAMUSER}" "${STEAMPASSWORD}" "${STEAMGUARDCODE}" \
 					+run_app_build -desc "${STEAMAPPBUILDESC}" "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}" \
