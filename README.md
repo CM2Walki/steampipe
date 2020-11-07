@@ -40,18 +40,18 @@ The **simple** way -> uploading to a single depot. Replace the following fields 
 - [UPLOADDIR] - location (on host) of application/game files to upload to the depot (for example the artifact location of your CI builds)
 
 ```console
-docker run -d --net=host -e STEAMUSER="[STEAMUSER]" -e STEAMPASSWORD="[ACCOUNTPASSWORD]" -e STEAMAPPID="[STEAMAPPID]" -e STEAMDEPOTID="[STEAMDEPOTID]" -e STEAMAPPBUILDESC="Automated CD Upload" -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" -v "steamcmd_output_volume:/home/steam/steamsdk/sdk/tools/ContentBuilder/output" --rm "cm2network/steampipe:contentbuilder"
+$ docker run -d --net=host -e STEAMUSER="[STEAMUSER]" -e STEAMPASSWORD="[ACCOUNTPASSWORD]" -e STEAMAPPID="[STEAMAPPID]" -e STEAMDEPOTID="[STEAMDEPOTID]" -e STEAMAPPBUILDESC="Automated CD Upload" -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" -v "steamcmd_output_volume:/home/steam/steamsdk/sdk/tools/ContentBuilder/output" --rm "cm2network/steampipe:contentbuilder"
 ```
 
 The **complex** way -> using custom .vdf files (for example for building to multiple depots). Replace the following fields before executing the command:
 - [STEAMUSER] - steam username
 - [ACCOUNTPASSWORD] - steam account password
 - [VDFAPPBUILDFILE] - The .vdf file steamcmd should call on container start (file must be located in [VDFFILESDIR])
-- [VDFFILESDIR] - location (on host) of the vdf files required to execute [VDFAPPBUILDFILE]
+- [VDFFILESDIR] - location (on host) of the vdf files that [VDFAPPBUILDFILE] depends on
 - [UPLOADDIR] - location (on host) of application/game files to upload to the depot (for example the artifact location of your CI builds)
 
 ```console
-docker run -d --net=host -e STEAMUSER="[STEAMUSER]" -e STEAMPASSWORD="[ACCOUNTPASSWORD]" -e VDFAPPBUILD="[VDFAPPBUILDFILE]" -e STEAMAPPBUILDESC="Automated CD Upload" -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" -v "[VDFFILESDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/scripts" -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" -v "steamcmd_output_volume:/home/steam/steamsdk/sdk/tools/ContentBuilder/output" --rm "cm2network/steampipe:contentbuilder"
+$ docker run -d --net=host -e STEAMUSER="[STEAMUSER]" -e STEAMPASSWORD="[ACCOUNTPASSWORD]" -e VDFAPPBUILD="[VDFAPPBUILDFILE]" -e STEAMAPPBUILDESC="Automated CD Upload" -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" -v "[VDFFILESDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/scripts" -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" -v "steamcmd_output_volume:/home/steam/steamsdk/sdk/tools/ContentBuilder/output" --rm "cm2network/steampipe:contentbuilder"
 ```
 
 ### Configuration
