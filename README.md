@@ -60,7 +60,7 @@ $ docker run -d --net=host -e STEAMUSER="[STEAMUSER]" -e STEAMPASSWORD="[ACCOUNT
 Feel free to overwrite these environment variables, using -e (--env): 
 ```dockerfile
 VDFAPPBUILD="app_build_default.vdf" (The vdf steamcmd should call on container start)
-STEAMAPPBRANCH="" (Leave empty, if you want to manually set the branch on the partner page)
+STEAMAPPBRANCH="" (Steam partner branch of appid to upload to. Warning: Setting this to a branch will instantly set the uploaded builds live! Useful for full CI/CD pipelines)
 STEAMAPPBUILDESC="Docker CD upload" (Partner page build description)
 
 STEAMAPPID="22222" (Only Used if there are no scripts in ${BUILDERSCRIPTDIR})
