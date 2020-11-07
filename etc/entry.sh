@@ -2,7 +2,7 @@
 
 # Are there scripts in the directory?
 # This is done on entry to provide bind mount support
-if [ ! "$( ls -A ${BUILDERSCRIPTDIR} )" ]; then
+if [ ! "$( ls -A "${BUILDERSCRIPTDIR}" )" ]; then
 	# There are no scripts, download the default ones
 	wget -qO- "${DLURL}/master/etc/app_build_default.vdf" -O "${BUILDERSCRIPTDIR}/app_build_default.vdf"
 	wget -qO- "${DLURL}/master/etc/depot_build_default.vdf" -O "${BUILDERSCRIPTDIR}/depot_build_default.vdf"
