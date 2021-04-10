@@ -27,7 +27,11 @@ Activate the SteamCMD login session, you will be asked to enter your e-mail Stea
 - [ACCOUNTPASSWORD] - steam account password
 
 ```console
-$ docker run -it --rm -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" cm2network/steampipe:contentbuilder bash /home/steam/steamcmd/steamcmd.sh +login [STEAMUSER] [ACCOUNTPASSWORD] +quit
+$ docker run -it --rm \
+    -v "steamcmd_login_volume:/home/steam/Steam:z" \
+    -v "steamcmd_volume:/home/steam/steamcmd:z" \
+    cm2network/steampipe:contentbuilder \
+    bash /home/steam/steamcmd/steamcmd.sh +login [STEAMUSER] [ACCOUNTPASSWORD] +quit
 ```
 
 **Using Contentbuilder:**
