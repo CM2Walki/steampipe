@@ -50,7 +50,8 @@ $ docker run -d --net=host \
     -e STEAMAPPID="[STEAMAPPID]" \
     -e STEAMDEPOTID="[STEAMDEPOTID]" -e STEAMAPPBUILDESC="Automated CD Upload" \
     -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" \
-    -v "steamcmd_login_volume:/home/steam/Steam:z" -v "steamcmd_volume:/home/steam/steamcmd:z" \
+    -v "steamcmd_login_volume:/home/steam/Steam:z" \
+    -v "steamcmd_volume:/home/steam/steamcmd:z" \
     -v "steamcmd_output_volume:/home/steam/steamsdk/sdk/tools/ContentBuilder/output" \
     --rm "cm2network/steampipe:contentbuilder"
 ```
