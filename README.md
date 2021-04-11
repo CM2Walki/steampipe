@@ -96,3 +96,6 @@ BUILDERCONTENTDIR="${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/content"
 BUILDEROUTPUTDIR="${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/output"
 LOCALCONTENTPATH="*" (Directory to build inside ContentRoot)
 ```
+
+# Contributors
+[![Contributors Display](https://badges.pufler.dev/contributors/CM2Walki/steampipe?size=50&padding=5&bots=false)](https://github.com/CM2Walki/steampipe/graphs/contributors)
