@@ -48,7 +48,8 @@ $ docker run -d --net=host \
     -e STEAMUSER="[STEAMUSER]" \
     -e STEAMPASSWORD="[ACCOUNTPASSWORD]" \
     -e STEAMAPPID="[STEAMAPPID]" \
-    -e STEAMDEPOTID="[STEAMDEPOTID]" -e STEAMAPPBUILDESC="Automated CD Upload" \
+    -e STEAMDEPOTID="[STEAMDEPOTID]" \
+    -e STEAMAPPBUILDESC="Automated CD Upload" \
     -v "[UPLOADDIR]:/home/steam/steamsdk/sdk/tools/ContentBuilder/content" \
     -v "steamcmd_login_volume:/home/steam/Steam:z" \
     -v "steamcmd_volume:/home/steam/steamcmd:z" \
