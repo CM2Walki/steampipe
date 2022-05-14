@@ -30,7 +30,7 @@ ENV STEAMGUARDCODE ""
 RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		wget=1.20.1-1.1 \
+		wget=1.21-1+deb11u1 \
 	&& mkdir -p "${CONTENTBUILDERDIR}" "${BUILDERSCRIPTDIR}" "${BUILDERCONTENTDIR}" "${BUILDEROUTPUTDIR}" \
 	&& wget -q "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
