@@ -18,6 +18,16 @@ if [ ! "$( ls -A "${BUILDERSCRIPTDIR}" )" ]; then
 		-e 's|{{BUILDERCONTENTDIR}}|'"${BUILDERCONTENTDIR}"'|g' \
 		-e 's|{{LOCALCONTENTPATH}}|'"${LOCALCONTENTPATH}"'|g' \
 		"${BUILDERSCRIPTDIR}/depot_build_default.vdf"
+
+	# Insert FileExclusions at the end of file
+	IN="${FILEEXCLUSIONS}"
+	FileExclusionsSplit=(${IN//;/ })
+
+	if [ ${#FileExclusionsSplit[@]} -gt 0 ]; then
+		for i in "${FileExclusionsSplit[@]}"; do
+			sed -i "\$i\        \"FileExclusion\" \"$i\"" "${BUILDERSCRIPTDIR}/depot_build_default.vdf"
+        	done
+	fi
 fi
 
 sed -i "/\"setlive\"/c\        \"setlive\" \"${STEAMAPPBRANCH}\"" "${BUILDERSCRIPTDIR}/${VDFAPPBUILD}"
