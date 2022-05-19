@@ -89,6 +89,7 @@ STEAMAPPBUILDESC="Docker CD upload" (Partner page build description)
 
 STEAMAPPID="22222" (Only Used if there are no scripts in ${BUILDERSCRIPTDIR})
 STEAMDEPOTID="22223" (Only Used if there are no scripts in ${BUILDERSCRIPTDIR})
+FILEEXCLUSIONS="" (; seperated list of things to exclude from the build, Only Used if there are no scripts in ${BUILDERSCRIPTDIR})
 
 CONTENTBUILDERDIR="${HOMEDIR}/steamsdk"
 BUILDERSCRIPTDIR="${CONTENTBUILDERDIR}/sdk/tools/ContentBuilder/scripts"
