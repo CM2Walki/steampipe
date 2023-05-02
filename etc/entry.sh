@@ -8,13 +8,13 @@ if [ ! "$( ls -A "${BUILDERSCRIPTDIR}" )" ]; then
 	wget -qO- "${DLURL}/master/etc/depot_build_default.vdf" -O "${BUILDERSCRIPTDIR}/depot_build_default.vdf"
 
 	# Replace variables in app_build.vdf
-	sed -i -e 's/{{STEAMAPPID}}/'"${STEAMAPPID}"'/g' \
-		-e 's/{{STEAMDEPOTID}}/'"${STEAMDEPOTID}"'/g' \
-		-e 's/{{STEAMAPPBUILDESC}}/'"${STEAMAPPBUILDESC}"'/g' \
+	sed -i -e 's|{{STEAMAPPID}}|'"${STEAMAPPID}"'|g' \
+		-e 's|{{STEAMDEPOTID}}|'"${STEAMDEPOTID}"'|g' \
+		-e 's|{{STEAMAPPBUILDESC}}|'"${STEAMAPPBUILDESC}"'|g' \
 		"${BUILDERSCRIPTDIR}/app_build_default.vdf"
 
 	# Replace variables in depot_build.vdf
-	sed -i -e 's/{{STEAMDEPOTID}}/'"${STEAMDEPOTID}"'/g' \
+	sed -i -e 's|{{STEAMDEPOTID}}|'"${STEAMDEPOTID}"'|g' \
 		-e 's|{{BUILDERCONTENTDIR}}|'"${BUILDERCONTENTDIR}"'|g' \
 		-e 's|{{LOCALCONTENTPATH}}|'"${LOCALCONTENTPATH}"'|g' \
 		"${BUILDERSCRIPTDIR}/depot_build_default.vdf"
